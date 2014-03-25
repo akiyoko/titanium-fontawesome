@@ -1,18 +1,66 @@
-Welcome to your Appcelerator Titanium Mobile Project
+How to set up alloy.widget.iconicfont
+=====================================
 
-This is a blank project.  Start by editing your application's app.js to 
-make your first mobile project using Titanium.
+TITANIUM_WORKSPACE=~/Documents/Titanium_Studio_Workspace
+PROJECT_PATH=$TITANIUM_WORKSPACE/titanium-fontawesome
 
+mkdir -p $PROJECT_PATH/app/widgets
+mkdir -p $PROJECT_PATH/app/assets/fonts
 
+1) alloy.widget.iconicfont
+cd ~/temp/
+git clone https://github.com/k0sukey/alloy.widget.iconicfont.git
+(latest commit: 97dca737c54b296c43b08f47ae7771d33ee48ead)
+cd alloy.widget.iconicfont/
+cp -a app/widgets/* $PROJECT_PATH/app/widgets/
 
-----------------------------------
-Stuff our legal folk make us say:
+2) TiIconicFont
+cd ~/temp/
+git clone https://github.com/k0sukey/TiIconicFont.git
+(latest commit: dff728e7a20f7e9f2ad20a4be01f4476faaa4dc5)
+cd TiIconicFont/
+cp -a Resources/lib/FontAwesome.js $PROJECT_PATH/app/widgets/be.k0suke.fontawesome/lib/
 
-Appcelerator, Appcelerator Titanium and associated marks and logos are 
-trademarks of Appcelerator, Inc. 
+3) Font-Awesome
+cd ~/temp/
+git clone https://github.com/FortAwesome/Font-Awesome.git
+(latest commit: 0373b63c16d7aa31b6715c3f81a98a2ffb9f40a6)
+cd Font-Awesome/
+cp -a fonts/fontawesome-webfont.ttf $PROJECT_PATH/app/assets/fonts/
 
-Titanium is Copyright (c) 2008-2013 by Appcelerator, Inc. All Rights Reserved.
+4) LigatureSymbols
+cd ~/temp/
+git clone https://github.com/kudakurage/LigatureSymbols.git
+(latest commit: d54f43cd72d190b7a3c0b2ee1644fac770b4a146)
+cd LigatureSymbols/
+cp -a LigatureSymbols-2.11.ttf $PROJECT_PATH/app/assets/fonts/
+mv $PROJECT_PATH/app/assets/fonts/LigatureSymbols-*.ttf $PROJECT_PATH/app/assets/fonts/LigatureSymbols.ttf
 
-Titanium is licensed under the Apache Public License (Version 2). Please
-see the LICENSE file for the full license.
+5) edit tiapp.xml
+vim tiapp.xml
+-----
+    <ios>
+        <plist>
+            <dict>
+                ・
+                ・
+                <key>UIAppFonts</key>
+                <array>
+                    <string>/fonts/fontawesome-webfont.ttf</string>
+                    <string>/fonts/LigatureSymbols.ttf</string>
+                </array>
+            </dict>
+        </plist>
+    </ios>
+-----
 
+6) edit app/config.json
+vim app/config.json
+-----
+    ・
+    ・
+	"dependencies": {
+		"be.k0suke.fontawesome": "1.0",
+		"be.k0suke.ligaturesymbols": "1.0"
+	}
+-----
