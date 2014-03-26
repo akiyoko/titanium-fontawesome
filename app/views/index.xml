@@ -2,5 +2,6 @@
     <Window class="container">
         <Widget class="icon" icon="icon-github" src="be.k0suke.fontawesome" />
         <Widget class="icon" icon="hatena" src="be.k0suke.ligaturesymbols" />
+        <Widget style="bs-default" icon="icon-github" title="My title" onClick="doClick" src="nl.fokkezb.button" />
     </Window>
 </Alloy>
