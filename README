@@ -64,3 +64,37 @@ vim app/config.json
 		"be.k0suke.ligaturesymbols": "1.0"
 	}
 -----
+
+
+How to set up nl.fokkezb.button
+===============================
+
+mkdir -p $PROJECT_PATH/app/lib
+
+7) nl.fokkezb.button
+cd ~/temp/
+curl -L https://github.com/FokkeZB/nl.fokkezb.button/tarball/master > FokkeZB-nl.fokkezb.button.tar
+tar xvf FokkeZB-nl.fokkezb.button.tar
+(latest commit: 679ce806b61f6c03ad93d7ac4e07a120dc9ea75a)
+rm FokkeZB-nl.fokkezb.button.tar
+mv FokkeZB-nl.fokkezb.button-* nl.fokkezb.button
+cp -a nl.fokkezb.button $PROJECT_PATH/app/widgets/
+
+8) TiIconicFont
+cd ~/temp/
+git clone https://github.com/k0sukey/TiIconicFont.git
+(latest commit: dff728e7a20f7e9f2ad20a4be01f4476faaa4dc5)
+cd TiIconicFont/
+cp -a Resources/lib/* $PROJECT_PATH/app/lib/
+
+9) edit app/config.json
+app/config.json
+-----
+    ・
+    ・
+    "dependencies": {
+        "be.k0suke.fontawesome": "1.0",
+        "be.k0suke.ligaturesymbols": "1.0",
+        "nl.fokkezb.button": "1.0.4"
+    }
+-----
